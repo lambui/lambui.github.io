@@ -98,6 +98,11 @@ html, body
 	font-weight: bold;
 }
 
+.setting select
+{
+	width: 92%;
+}
+
 .action
 {
 	width: 100%;
@@ -118,6 +123,7 @@ html, body
 	margin-left: 1%;
 	width: 98%;
 	height: 160px;
+	font-family: "Courier";
 }
 
 .credit

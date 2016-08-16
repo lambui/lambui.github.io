@@ -15,6 +15,7 @@
 		<p>2. fill out input fields right below to further customize your ASCII schedule</p>
 		<p>3. click 'Generate Schedule!' button and your ASCII WEEKLY PLANNER will be waiting below!!!</p>
 		<p>4. simply highlight and then do the ole copy-paste (CTRL-A, CTRL-C, CTRL-V for more time-saving)</p>
+		<p>5. all working font are monospace fonts. If a chosen font doesn't work (not properly aligned), it means you don't have it installed</p>
 	</div>
 
 	<!--day of the week-->
@@ -58,6 +59,29 @@
 		<div>
 			<p>Font Size: </p>
 			<input type="text" id="fontSize" value="12">
+		</div>
+		<div>
+			<p>Font Selection: </p>
+			<select id="fontType" onchange="changeFont()">
+				<option>Courier</option>
+				<option>Arial Monospaced</option>
+				<option>Consolas</option>
+			    <option>Courier New</option>
+				<option>Droid Sans Mono</option>
+				<option>Everson Mono</option>
+			    <option>Lucida Console</option>
+				<option>Lucida Sans Typewriter</option>
+				<option>Lucida Typewriter</option>
+				<option>Monaco</option>
+				<option>Monospace</option>
+				<option>MS Gothic</option>
+				<option>Terminal</option>
+				<option>Ubuntu Mono</option>
+			</select>
+		</div>
+		<div>
+			<p>Whitespace Replacement: </p>
+			<input type="text" id="wsReplace" value=" ">
 		</div>
 	</div><br>
 	<div class="action">

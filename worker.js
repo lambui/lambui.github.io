@@ -2,6 +2,8 @@ var header = "";
 var body = "";
 var boxLength = 0;
 var fontSize = 0;
+var wsReplace = " ";
+var fontType = "Courier"
 
 var dateInput = 
 [
@@ -25,6 +27,17 @@ function getFontSize()
 		fontSize = 5;
 }
 
+function getFont()
+{
+	fontType = document.getElementById("fontType").value;
+}
+
+function changeFont()
+{
+	getFont();
+	document.getElementById("output").style.fontFamily = fontType;
+}
+
 function getBoxLength()
 {
 	boxLength = document.getElementById("boxLength").value;
@@ -32,6 +45,19 @@ function getBoxLength()
 	//minimum boxLength is 10
 	if(boxLength < 10)
 		boxLength = 10;
+}
+
+function getWhitespaceReplacement()
+{
+	wsReplace = document.getElementById("wsReplace").value;
+}
+
+function getSetting()
+{
+	getFont();
+	getFontSize();
+	getBoxLength();
+	getWhitespaceReplacement();
 }
 
 function generateHeader()
@@ -74,7 +100,7 @@ function generateHeader()
 						case 6: header += "Sunday"; 	remainingChar = boxLength - 6; break;
 					}
 					for(i = 0; i < remainingChar; i++)
-						header += " ";
+						header += wsReplace;
 					if(j == 6)
 						header += "|";
 					break;
@@ -182,7 +208,7 @@ function getMaxHeight() //this also format the dateInput info to fit into box si
 					case "	": //nullify the use of tab char by converting it into whitespace
 						if(remainingChar > 0)
 						{
-							parsedContent += " ";
+							parsedContent += wsReplace;
 							remainingChar -= 1;
 						}
 						else //if not then add linebreak
@@ -217,7 +243,7 @@ function addWhitespace(remainingLength)
 	var i = 0;
 	while(i < remainingLength)
 	{
-		whiteString += " ";
+		whiteString += wsReplace;
 		i++;
 	}
 	return whiteString;
@@ -273,12 +299,12 @@ function displayInput(maxHeight)
 
 function execute()
 {
-	getFontSize();
-	getBoxLength();
+	getSetting();
 	generateHeader();
 	getInput();
 	displayInput(getMaxHeight());
 
 	document.getElementsByClassName("outputField")[0].value = header + body;
 	document.getElementById("output").style.fontSize = fontSize+"px";
+	document.getElementById("output").style.fontFamily = fontType;
 }
