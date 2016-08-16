@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sample Text</title>
+	<meta charset="UTF-8">
+	<script src="worker.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<!--header of the page-->
+	<div class="header">
+		<p class="title">ASCII WEEKLY PLANNER</p>
+		<p>1. type in activities you have for each day into appropriate text boxes</p>
+		<p>2. fill out input fields right below to further customize your ASCII schedule</p>
+		<p>3. click 'Generate Schedule!' button and your ASCII WEEKLY PLANNER will be waiting below!!!</p>
+		<p>4. simply highlight and then do the ole copy-paste (CTRL-A, CTRL-C, CTRL-V for more time-saving)</p>
+	</div>
+
+	<!--day of the week-->
+	<div class="week">
+		<div>
+			<p>Monday:</p>
+			<textarea type="text" class="inputField" rows="10"></textarea>
+		</div>
+		<div>
+			<p>Tuesday:</p>
+			<textarea type="text" class="inputField" rows="10"></textarea>
+		</div>
+		<div>
+			<p>Wednesday:</p>
+			<textarea type="text" class="inputField" rows="10"></textarea>
+		</div>
+		<div>
+			<p>Thursday:</p>
+			<textarea type="text" class="inputField" rows="10"></textarea>
+		</div>
+		<div>
+			<p>Friday:</p>
+			<textarea type="text" class="inputField" rows="10"></textarea>
+		</div>
+		<div>
+			<p>Saturday:</p>
+			<textarea type="text" class="inputField" rows="10"></textarea>
+		</div>
+		<div>
+			<p>Sunday:</p>
+			<textarea type="text" class="inputField" rows="10"></textarea>
+		</div>
+	</div>
+
+	<!--settings, customize stuff-->
+	<div class="setting">
+		<div>
+			<p>Column Size: </p>
+			<input type="text" id="boxLength" value="10">
+		</div>
+		<div>
+			<p>Font Size: </p>
+			<input type="text" id="fontSize" value="12">
+		</div>
+	</div><br>
+	<div class="action">
+		<button type = "button" onClick = "execute()">Generate Schedule!</button>
+		<textarea id="output" type="text" class="outputField" readonly="readonly"></textarea>
+	</div>
+</body>
+</html>
