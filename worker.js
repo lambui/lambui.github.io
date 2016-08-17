@@ -1,36 +1,3 @@
-//jquery counting visitors
-var visitorNumber = 0;
-$.ajax({
-url: "http://count.io/vb/visitorCount/visitor+",
-type: "POST"
-});
-/*
-$.ajax({
-url:"http://count.io/vb/visitorCount/",
-success: function(data) {
-    visitorNumber = data.counts[0].count;
-    document.getElementById("visitorNumber").value = "Visitor count: " + visitorNumber;
-}
-});
-*/
-
-// Make dynamic HTTP prefix that depends on the prefi of the site's current page protocol
-var httpPrefix = (window.location.protocol === 'http:' ? 'http:' : 'https:');
-
-setInterval(function()
-{
-  /// call your function here
-
-	$.ajax({
-	url: httpPrefix + '//cors-anywhere.herokuapp.com/' + "http://count.io/vb/visitorCount/",
-	success: function(data) {
-	    visitorNumber = data.counts[0].count;
-	    document.getElementById("visitorNumber").innerHTML = "Visitor count: " + visitorNumber;
-	}
-	});
-
-}, 1000*60); //calling every 1 min
-
 //pure js below
 var header = "";
 var body = "";
