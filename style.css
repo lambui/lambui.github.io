@@ -131,3 +131,9 @@ html, body
 	float: right;
 	margin-right: 1%;
 }
+
+.counter
+{
+	float: left;
+	margin-left: 1%;
+}
