@@ -1,7 +1,7 @@
 //jquery counting visitors
 var visitorNumber = 0;
 $.ajax({
-url:"http://count.io/vb/visitorCount/visitor+",
+url: httpPrefix + '//cors-anywhere.herokuapp.com/' + "http://count.io/vb/visitorCount/visitor+",
 type: "POST"
 });
 /*
@@ -14,12 +14,15 @@ success: function(data) {
 });
 */
 
+// Make dynamic HTTP prefix that depends on the prefi of the site's current page protocol
+var httpPrefix = (window.location.protocol === 'http:' ? 'http:' : 'https:');
+
 setInterval(function()
 {
   /// call your function here
 
 	$.ajax({
-	url:"http://count.io/vb/visitorCount/",
+	url: httpPrefix + '//cors-anywhere.herokuapp.com/' + "http://count.io/vb/visitorCount/",
 	success: function(data) {
 	    visitorNumber = data.counts[0].count;
 	    document.getElementById("visitorNumber").innerHTML = "Visitor count: " + visitorNumber;
