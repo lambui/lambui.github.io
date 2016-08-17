@@ -1,7 +1,7 @@
 //jquery counting visitors
 var visitorNumber = 0;
 $.ajax({
-url: httpPrefix + '//cors-anywhere.herokuapp.com/' + "http://count.io/vb/visitorCount/visitor+",
+url: "http://count.io/vb/visitorCount/visitor+",
 type: "POST"
 });
 /*
