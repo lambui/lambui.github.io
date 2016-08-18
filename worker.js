@@ -1,3 +1,17 @@
+//firebase
+const firebaseRoot = firebase.database().ref();
+const visitorRef = firebaseRoot.child('visitor');
+
+//jquery
+$(document).ready(function()
+{
+	visitorRef.once('value', newValue => 
+	{
+		visitorRef.set(newValue.val()+1); 
+		document.getElementById('visitorNumber').innerText = "Visitor Counter: " + (newValue.val()+1);
+	});
+});
+
 //pure js below
 var header = "";
 var body = "";

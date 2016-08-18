@@ -4,10 +4,29 @@
 	<title>ASCII Weekly Planner</title>
 	<meta charset="UTF-8">
 	<link rel="shortcut icon" type="image/x-icon" href="icon.png"/>
-	<script src="worker.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<!--firebase initialization-->
+	<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+		apiKey: "AIzaSyD7TLw-cs9SN9o4OtDfvZrfA-RK-YKZsaM",
+		authDomain: "githubwebdatabase.firebaseapp.com",
+		databaseURL: "https://githubwebdatabase.firebaseio.com",
+		storageBucket: "githubwebdatabase.appspot.com",
+		};
+		firebase.initializeApp(config);
+	</script>
+	<!--end of such-->
+	
+	<script src="worker.js"></script>
+    
 </head>
 <body>
+
+	
 	<!--header of the page-->
 	<div class="header">
 		<p class="title">ASCII WEEKLY PLANNER</p>
@@ -91,10 +110,8 @@
 	<div class="credit">
 		<p>Created by Lam Bui. Contact via email at <a href="mailto:buiphuonglamvn@gmail.com">buiphuonglamvn@gmail.com</a></p>
 	</div>
-	<!--
 	<div class="counter">
-		<p id="visitorNumber">Visitor count: 100</p>
+		<p id="visitorNumber">Visitor Counter:</p>
 	</div>
-	-->
 </body>
 </html>
