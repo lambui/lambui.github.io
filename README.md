@@ -1,5 +1,8 @@
 # 100Rooms
 
+Main github for this is @ https://github.com/lambui/savePrincess_textAdventure <br>
+This is just a github page of the website hosting the game.
+
 ###About the game:
 The game is called 100 rooms.<br>
 It is a text-based, turn-based adventure game where you are a hero on your quest to save princess from a evil Demon.<br>
