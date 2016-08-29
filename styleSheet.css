@@ -1,0 +1,759 @@
+html, body
+{
+	background-color: white;
+	margin: 0;
+	border: 0;
+    padding: 0;
+    margin-top: 1%;
+    width: 100%;
+    height: 90%;
+}
+
+*
+{
+	font-family: "Consolas";
+}
+
+.gameInfo
+{
+	position: fixed;
+	bottom: 1%;
+	right: 1%;
+}
+
+.intro
+{
+	position: absolute;
+	background-color: white;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	visibility: visible;
+}
+
+	.intro #devNote
+	{
+		position: absolute;
+		right: 0%;
+		top: 10%;
+		width: 20%;
+		padding: 1%;
+		border: dashed;
+		border-radius: 10px;
+	}
+
+	.intro .inner
+	{
+		position: absolute;
+		width: 40%;
+		height: 80%;
+		left: 30%;
+		top: 10%;
+		border-style: solid;
+		border-radius: 10px;
+		padding: 5px;
+		background-color: white;
+	}
+
+	.intro .inner #name
+	{
+		float: left;
+		margin-top: -4.5%;
+		margin-left: 35%;
+		margin-right: 35%;
+		width: 30%;
+		background-color: white;
+		border-radius: 5px;
+		font-size: 30px;
+		text-align: center;
+	}
+
+	.intro .inner #introContent
+	{
+		float: left;
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-top: 3%;
+	}
+
+	#introContent #inputHeroName
+	{
+		float: left;
+		width: 60%;
+		margin-left: 20%;
+		margin-right: 20%;
+		margin-bottom: 5%;
+	}
+
+	#introContent .introPara
+	{
+		width: 100%;
+		margin-bottom: 5%;
+	}
+		.introPara p
+		{
+			margin: 0;
+			padding: 0;
+			border: 0;
+			margin-bottom: 2%;
+		}
+
+		#beginIntro
+		{
+			text-align: center;
+			margin-bottom: 2%;
+		}
+
+		#endIntro
+		{
+			text-align: center;
+			font-weight: bold;
+		}
+
+	#introContent .chooseDif
+	{
+		width: 100%;
+		margin-bottom: 5%;
+	}
+
+		.chooseDif .wrapper
+		{
+			float: left;
+			margin-left: 2%;
+			margin-right: 2%;
+			margin-bottom: 5%;
+			width: 46%;
+		}
+
+			.chooseDif .wrapper textarea
+			{
+				width: 96%;
+				padding: 2%;
+				border: none;
+				border-radius: 10px;
+			    overflow: visible;
+			    outline: none;
+
+			    -webkit-box-shadow: none;
+			    -moz-box-shadow: none;
+			    box-shadow: none;
+			    resize: none;
+			}
+
+				.chooseDif .wrapper textarea:hover
+				{
+					-webkit-box-shadow: 0px 0px 70px 0px rgba(28,197,219,0.5);
+					-moz-box-shadow: 0px 0px 70px 0px rgba(28,197,219,0.5);
+					box-shadow: 0px 0px 70px 0px rgba(28,197,219,0.5);				
+				}
+
+			.chooseDif .wrapper button
+			{
+				width: 100%;
+				font-size: 1.3em;
+			}
+
+	#introContent #infoBox
+	{
+		width: 100%;
+		resize: none;
+	}
+
+.playerInfo
+{
+	position: absolute;
+	margin-left: 3%;
+	padding-right: 2%;
+	width: 20%;
+	height: 90%;
+	border-right: solid;
+	overflow: auto;
+}
+	.playerInfo #name
+	{
+		font-style: bold;
+		font-size: 1.5em;
+		margin-bottom: 10px;
+	}
+
+	.playerInfo div:nth-child(n+2) /*select all but the first (2)-1 child*/
+	{
+		
+	}
+
+	.playerInfo #passiveItem div
+	{
+		margin-left: 10%;
+	}
+
+	.playerInfo #inventoryItem div
+	{
+		margin-left: 10%;
+		cursor: pointer;
+	}
+
+	.playerInfo #inventoryItem div:hover
+	{
+		text-decoration: underline;
+	}
+
+.main
+{
+	position: absolute;
+	left: 30%;
+	width: 70%;
+	height: 60%;
+}
+
+/*all under .main below*/
+.action
+{
+	width: 80%;
+	height: 40%;
+	margin-bottom: 5%;
+}
+	.action button
+	{
+		float: left;
+		width: 10.5%;
+		height: 75px;
+		margin-top: 0;
+		margin-left: 1%;
+		margin-right: 1%;
+		margin-bottom: 5%;
+	}
+
+#map
+{
+	position: absolute;
+	left: 88%;
+}
+
+.outputWrapper
+{
+	width: 80%;
+	height: 40%;
+	margin-bottom: 5%;
+}
+	#outputInfo
+	{
+		margin-bottom: 3%;
+		width: 100%;
+		height: 100%;
+	}
+
+.navigation
+{
+	background-color: white;
+	position: absolute;
+	margin-left: 1%;
+	margin-right: 1%;
+	width: 80%;
+	height: 40%;
+}
+
+.navigation button
+{
+	width: 12%;
+	height: 30%;
+}
+
+	#up
+	{
+		position: absolute;
+		top: 0;
+		left: 44%;
+	}
+
+	#down
+	{
+		position: absolute;
+		bottom: 0;
+		left: 44%;
+	}
+
+	#left
+	{
+		position: absolute;
+		left: 30%;
+		top: 35%;
+	}
+
+	#right
+	{
+		position: absolute;
+		right: 30%;
+		top: 35%;
+	}
+
+	#rest
+	{
+		position: absolute;
+		left: 44%;
+		top: 35%;
+	}
+
+.shop
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	visibility: hidden;
+}
+
+	.shop .inner
+	{
+		position: absolute;
+		width: 40%;
+		height: 80%;
+		left: 50%;
+		top: 10%;
+		border-style: solid;
+		border-radius: 10px;
+		padding: 5px;
+		background-color: white;
+	}
+
+		.shop .inner #name
+		{
+			float: left;
+			margin-top: -4.5%;
+			margin-left: 5%;
+			background-color: white;
+			border-radius: 5px;
+			font-size: 30px;
+			text-align: left;
+		}
+
+		.shop .inner #content
+		{
+			float: left;
+			width: 80%;
+			height: 85%;
+			margin-top: 5%;
+			margin-bottom: 5%;
+			margin-left: 10%;
+			margin-right: 10%;
+			overflow: auto;
+		}
+
+			#content .itemName
+			{
+				float: left;
+				margin-left: 5%;
+				margin-right: 1%;
+				margin-top: 1%;
+				margin-bottom: 1%;
+				width: 50%;
+				font-size: 15px;
+				text-align: left;
+			}
+
+			#content .itemPrice
+			{
+				float: right;
+				margin-right: 3%;
+				width: 10%;
+				font-size: 15px;
+				text-align: right;
+			}
+
+			#content button
+			{
+				float: right;
+				width: 10%;
+			}
+
+			#content #sellingItem
+			{
+				float: left;
+				margin-left: 5%;
+				margin-right: 1%;
+				margin-top: 1%;
+				margin-bottom: 1%;
+				width: 85%;
+				font-size: 20px;
+				font-style: bold;
+				text-align: left;
+				border-bottom: solid;
+			}	
+
+		.shop .inner #exit
+		{
+			float: right;
+			height: 5%;
+			width: 20%;
+			margin-top: -3%;
+			margin-right: 2%;
+			border-radius: 5px;
+		}
+
+	.shop .info
+	{
+		position: absolute;
+		width: 20%;
+		height: 40%;
+		left: 27%;
+		top: 10%;
+		border-style: solid;
+		border-radius: 10px;
+		padding: 5px;
+		background-color: white;
+	}
+
+		.shop .info #name
+		{
+			float: left;
+			margin-top: -9%;
+			margin-left: 5%;
+			margin-bottom: 4%;
+			background-color: white;
+			border-radius: 5px;
+			font-size: 30px;
+			text-align: left;
+		}
+
+		.info #outputInfoShop
+		{
+			float: left;
+			margin-left: 3%;
+			margin-right: 3%;
+			padding: 2%;
+			width: 90%;
+			height: 88%;
+			resize: none;
+			border-radius: 5px;
+			overflow: auto;
+			outline: none;
+
+		    -webkit-box-shadow: none;
+		    -moz-box-shadow: none;
+		    box-shadow: none;
+		}
+
+.gambleTable
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	visibility: hidden;
+}
+
+	.gambleTable .inner
+	{
+		position: absolute;
+		width: 40%;
+		height: 80%;
+		left: 30%;
+		top: 10%;
+		border-style: solid;
+		border-radius: 10px;
+		padding: 5px;
+		background-color: white;
+	}
+
+	.gambleTable .inner #name
+	{
+		float: left;
+		margin-top: -4.5%;
+		margin-left: 5%;
+		background-color: white;
+		border-radius: 5px;
+		font-size: 30px;
+		text-align: left;
+	}
+
+	.gambleTable .inner #tableContent
+	{
+		float: left;
+		width: 90%;
+		height: 85%;
+		margin-top: 5%;
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+
+		#tableContent #outputInfo2
+		{
+			float: left;
+			width: 99%;
+			height: 40%;
+			resize: none;
+			margin-bottom: 8%;
+		}
+
+		#tableContent #betArea
+		{
+			float: left;
+			width: 100%;
+			height: 8%;
+			margin-bottom: 8%;
+		}
+			#betArea #betGold
+			{
+				float: left;
+				height: 100%;
+				width: 65%;
+				font-size: 2em;
+				text-align: right;
+				margin-right: 3%;
+				color: gold;
+			}
+
+			#betArea #controlButton
+			{
+				float: left;
+				height: 100%;
+				width: 5%;
+			}
+
+			#betArea #controlButton button
+			{
+				float: right;
+				width: 100%;
+				height: 45%;
+			}
+
+			#betArea #startGamble
+			{
+				float: right;
+				font-size: 2em;
+				width: 20%;
+				height: 100%;
+			}
+
+		#tableContent #choiceArea
+		{
+			float: left;
+			width: 100%;
+			height: 50%;
+		}
+
+			#choiceArea .wrapper
+			{
+				float: left;
+				width: 31%;
+				height: 40%;
+				margin-left: 1%;
+				margin-right: 1%;
+			}
+
+			#choiceArea textarea
+			{
+				border: none;
+			    overflow: visible;
+			    outline: none;
+
+			    -webkit-box-shadow: none;
+			    -moz-box-shadow: none;
+			    box-shadow: none;
+			    resize: none;
+
+			    margin-left: 10%;
+			    margin-bottom: 10%;
+			    width: 80%;
+			    float: left;
+			}
+
+			#choiceArea button
+			{
+				margin-left: 10%;
+				margin-right: 10%;
+				width: 80%;
+				height: 30%;
+			}
+
+	.gambleTable .inner #exit
+	{
+		float: right;
+		height: 5%;
+		width: 20%;
+		margin-right: 5%;
+		border-radius: 5px;
+	}
+
+.riddleWindow
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	visibility: hidden;
+}
+
+	.riddleWindow .inner
+	{
+		position: absolute;
+		width: 40%;
+		height: 80%;
+		left: 30%;
+		top: 10%;
+		border-style: solid;
+		border-radius: 10px;
+		padding: 5px;
+		background-color: white;
+	}
+
+	.riddleWindow .inner #name
+	{
+		float: left;
+		margin-top: -4.5%;
+		margin-left: 5%;
+		background-color: white;
+		border-radius: 5px;
+		font-size: 30px;
+		text-align: left;
+	}
+
+	.riddleWindow .inner #tableContent
+	{
+		float: left;
+		width: 90%;
+		height: 85%;
+		margin-top: 5%;
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+
+		#tableContent #outputInfo3
+		{
+			float: left;
+			width: 99%;
+			height: 40%;
+			resize: none;
+			margin-bottom: 3%;
+		}
+
+		#tableContent #riddleReply
+		{
+			float: left;
+			width: 100%;
+			height: 55%;
+		}
+
+			#riddleReply .wrapper
+			{
+				position: relative;
+				float: left;
+				width: 50%;
+				height: 45%;
+				margin-bottom: 5%;
+			}
+
+			#riddleReply textarea
+			{
+				border: none;
+			    overflow: visible;
+			    outline: none;
+
+			    -webkit-box-shadow: none;
+			    -moz-box-shadow: none;
+			    box-shadow: none;
+			    resize: none;
+
+			    margin-left: 0%;
+			    margin-bottom: 0%;
+			    width: 80%;
+			    height: 100%;
+			    float: left;
+			}
+
+			#riddleReply button
+			{
+				position: absolute;
+				top: 10%;
+				right: 10%;
+				width: 30%;
+				height: 30%;
+			}
+
+	.riddleWindow .inner #exit
+	{
+		float: right;
+		height: 5%;
+		width: 20%;
+		margin-right: 5%;
+		border-radius: 5px;
+	}
+
+.end
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	visibility: hidden;
+}
+
+	.end .inner
+	{
+		position: absolute;
+		width: 40%;
+		height: 80%;
+		left: 30%;
+		top: 10%;
+		border-style: solid;
+		border-radius: 10px;
+		padding: 5px;
+		background-color: white;
+	}
+
+	.end .inner #name
+	{
+		float: left;
+		margin-top: -4.5%;
+		margin-left: 35%;
+		margin-right: 35%;
+		width: 30%;
+		background-color: white;
+		border-radius: 5px;
+		font-size: 30px;
+		text-align: center;
+	}
+
+	.end .inner #endArt
+	{
+		float: left;
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-top: 5%;
+		margin-bottom: 5%;
+		width: 90%;
+
+		border: none;
+		border-radius: 10px;
+	    overflow: visible;
+	    outline: none;
+
+	    -webkit-box-shadow: none;
+	    -moz-box-shadow: none;
+	    box-shadow: none;
+	    resize: none;
+	}
+
+	.end .inner #endInfoBox
+	{
+		float: left;
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-bottom: 5%;
+		width: 90%;
+	}
+
+	.end .inner #replayButton
+	{
+		border-radius: 10px;
+		font-size: 1.5em;
+		margin-left: 20%;
+		margin-right: 20%;
+		width: 60%;
+	}
