@@ -177,21 +177,21 @@ function blinkWalk()
 	{
 		if(checkSuccessRate(60)) //theres a 60% chance you get out in random available direction
 		{
-			$('#outputInfo').append("You trace your way in the dark and you find a door leading to another room.\n");
 			goInDirection(possiblePath[getRandomInt(0, possiblePath.length-1)]);
+			$('#outputInfo').append("You just realize you have traced your way in the dark and found a door leading to another room.\n");
 			return;
 		}
 
 		if(checkSuccessRate(50)) //theres 20% chance you didnt find your way
 		{
 			$('#outputInfo').append("You search and search in the dark but you do not find any way out.\n");
-			return;
 		}
 		else //theres 20% chance you hurt urself tripping on rock
 		{
 			$('#outputInfo').append("You trips on something and falls over. Something seems to pierce through your body.\n");
 			$('#outputInfo').append("You lose 5 HP\n");
 			HP -= 5;
+			updateHeroInfo();
 			if(HP <= 0)
 				endGame(0);
 		}
@@ -200,9 +200,12 @@ function blinkWalk()
 	{
 		if(checkSuccessRate(80))
 		{
-			$('#outputInfo').append("You trace your way in the dark and you find a door leading to another room.\n");
 			goInDirection(possiblePath[getRandomInt(0, possiblePath.length-1)]);
-			return;
+			$('#outputInfo').append("You just realize you have traced your way in the dark and found a door leading to another room.\n");
+		}
+		else
+		{
+			$('#outputInfo').append("You search and search in the dark but you do not find any way out.\n");
 		}
 	}
 }
@@ -231,6 +234,8 @@ function openRiddle()
 function openGamble()
 {
 	$($('.gambleTable')[0]).css('visibility', 'visible');
+	$('#outputInfo2').text("Heheheh. Would you like to play a tittle game with me? I will get out of the way if you play with me. Hehehe. If you win you will get rewarded handsomely.\n");
+	$('#outputInfo2').append("Place down your bet if you want to play. Hehehe...\n");
 	currentRoom.roomContent.action();
 }
 
@@ -290,8 +295,16 @@ function melee()
 		var theBoss = currentRoom.roomContent;
 		if(theBoss.invi == 1)
 		{
-			aString += "The demon trace has all vanished. You swings your sword blindly in the air but to no avail. None of your swings connects.\n";
-			dmgDealt = 0;
+			if(backpack[21].count > 0)
+			{
+				aString += "The demon trace has all vanished. But the heat goggles allow you to clearly see him. You suddendly swings your sword at him. Caught by surprise the demon howls in pain.\n";
+				dmgDealt = Math.floor(dmgDealt*1.1);
+			}
+			else
+			{
+				aString += "The demon trace has all vanished. You swings your sword blindly in the air but to no avail. None of your swings connects.\n";
+				dmgDealt = 0;
+			}
 		}
 
 		if(theBoss.fly == 1)
@@ -388,8 +401,16 @@ function shootArrow()
 		var theBoss = currentRoom.roomContent;
 		if(theBoss.invi == 1)
 		{
-			aString += "The demon trace has all vanished. You fires your arrow blindly to open spaces to no avail. None of arrows seems to hit anything.\n";
-			dmgDealt = 0;
+			if(backpack[21].count > 0)
+			{
+				aString += "The demon trace has all vanished. But the heat goggles allow you to spot him. You precisely let your arrow fly. The arrow struck him square in the chest.\n";
+				dmgDealt = Math.floor(dmgDealt*1.1);
+			}
+			else
+			{
+				aString += "The demon trace has all vanished. You fires your arrow blindly to open spaces to no avail. None of arrows seems to hit anything.\n";
+				dmgDealt = 0;
+			}
 		}
 
 		if(theBoss.evasion > getRandomInt(0,99))
@@ -534,7 +555,6 @@ function useItem(itemName) //itemName == 'name' property of objects in backpack 
 	}
 
 	item.execute();
-	$("#outputInfo").append(isFly + " " + isBlock + " " + isFireResis + " " + isJump + "\n");
 
 	//if its secret room
 	if(currentRoom.roomType() == 2 && (itemName == 'torch' || itemName == 'fireSpell'))
@@ -545,10 +565,14 @@ function useItem(itemName) //itemName == 'name' property of objects in backpack 
 	if(currentRoom.roomType() == 6 && checkSuccessRate(50))
 		$("#outputInfo").append(currentRoom.roomContent.action());
 
+	//if boss room
+	if(currentRoom.roomType() == 8 && checkSuccessRate(75))
+		$("#outputInfo").append(currentRoom.roomContent.action());
+
 	action();
 	updateHeroInfo();
 	updateNavigation(); //can be found in map.js
-	showDescription(); //can be found in map.js
+	$("#outputInfo").append(currentRoom.roomContent.info());
 }
 
 function rest()
